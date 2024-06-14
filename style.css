@@ -19,6 +19,7 @@
     --bg-acessibilidade: #f6e7ff;
     --purple: #a729f5;
     --bg-mobile: url(./assets/images/pattern-background-mobile-light.svg);
+    --bg-desktop: url(./assets/images/pattern-background-desktop-light.svg);
   
     
 }
@@ -136,4 +137,13 @@ main{
 
 .botao_acessibilidade div {
     background: var(--bg-acessibilidade);
+}
+
+@media(min-widht: 1100px) {
+    body {
+        background: var(--bg-desktop);
+        background-size:cover ;
+        background-repeat: no-repeat;
+        
+    }
 }
