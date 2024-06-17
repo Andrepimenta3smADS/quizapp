@@ -5,29 +5,31 @@
     font-family: "Rubik", sans-serif;
     -webkit-font-smoothing: antialiased;
 }
+
 :root {
     --bg-color: #f4f6fa;
-    --white: #fff;
-    --purple-hover: rgba(167, 41, 245, 0.6);
+    --bg-span: #f4f6fa;
+    --color-span: #626c7f;
+    --purple: #a729f5;
+    --purple-hover: rgba(167, 41, 245, 0.7);
     --primary-text-color: #313e51;
     --secondary-text-color: #626c7f;
     --button-bg: #fff;
-    --shadow: 0px 16px 40px 0px rgba(143, 160, 193, 0.14);
+    --shadow: 8px 16px 40 px 8px rgba(143, 168, 193, 0.14);
     --bg-html: #fff1e9;
     --bg-css: #e0fdef;
-    --bg-javascript: #ebf0ff;
+    --bg-javascript: #ebf9ff;
     --bg-acessibilidade: #f6e7ff;
-    --purple: #a729f5;
-    --gren: #26d782;
+    --white: #fff;
+    --green: #26d782;
     --red: #ee5454;
     --bg-mobile: url(../../assets/images/pattern-background-mobile-light.svg);
     --bg-desktop: url(../../assets/images/pattern-background-desktop-light.svg);
-
-
 }
 
 body.escuro {
     --bg-color: #313e51;
+    --color-span: #313e51;
     --bg-mobile: url(../../assets/images/pattern-background-mobile-dark.svg);
     --bg-desktop: url(../../assets/images/pattern-background-desktop-dark.svg);
     --primary-text-color: #fff;
@@ -43,10 +45,10 @@ body {
     background-size: cover;
 }
 
-header{
+header {
     display: flex;
     justify-content: space-between;
-padding: 16px 24px;
+    padding: 16px 24px;
 }
 
 .assunto {
@@ -70,7 +72,7 @@ padding: 16px 24px;
 .assunto h1 {
     font-size: 18px;
     font-weight: 500;
-    color:var(--primary-text-color);
+    color: var(--primary-text-color);
 }
 
 .tema {
@@ -78,10 +80,12 @@ padding: 16px 24px;
     display: flex;
     align-items: center;
     gap: 8px;
+
 }
 
 .tema img {
     width: 16px;
+
 }
 
 .tema button {
@@ -91,14 +95,15 @@ padding: 16px 24px;
     border: 0;
     border-radius: 999px;
     padding: 4px;
-
+    display: flex;
+    cursor: pointer;
 }
 
 .tema button div {
     background: var(--white);
     width: 12px;
     height: 12px;
-    border-radius: 999px;
+    border-radius: 999px
 }
 
 main {
@@ -122,8 +127,8 @@ main {
     color: var(--primary-text-color);
     line-height: 24px;
     margin-bottom: 24px;
-
 }
+
 .barra_progresso {
     background: var(--button-bg);
     height: 16px;
@@ -140,17 +145,10 @@ main {
 
 .alternativas form {
     display: flex;
-    gap: 12px;
     flex-direction: column;
+    gap: 12px;
     font-size: 18px;
     margin-bottom: 12px;
-}
-
-.alternativas div {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-
 }
 
 .alternativas label {
@@ -163,30 +161,29 @@ main {
     box-shadow: var(--shadow);
     color: var(--primary-text-color);
     cursor: pointer;
-    
 }
 
 .alternativas label:hover {
     & span {
-    background: var(--bg-acessibilidade);
-    color: var(--purple);
+        background: var(--bg-acessibilidade);
+        color: var(--purple);
     }
 }
 
-.alternativas label:has(input:checked){
+.alternativas label:has(input:checked) {
     outline: 3px solid var(--purple);
 
     & span {
-    background: var(--purple);
-    color: var(--white);
+        background: var(--purple);
+        color: var(--white);
     }
 }
 
 .alternativas label#correta {
-    outline: 3px solid var(--gren);
+    outline: 3px solid var(--green);
 
     & span {
-        background: var(--gren);
+        background: var(--green);
         color: var(--white);
     }
 }
@@ -200,20 +197,29 @@ main {
     }
 }
 
-.alternativas input {
+.alternativas input{
     display: none;
 }
 
+.alternativas div {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    
+}
+
 .alternativas div span {
-   display: block;
+    display: block;
     width: 40px;
     height: 40px;
-    background: var(--bg-color);
+    background: var(--bg-span);
+    border-radius: 5px;
+    color: var(--color-span);
+
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 5px;
-    color: var(--secondary-text-color);
     flex-shrink: 0;
 }
 
@@ -224,17 +230,24 @@ main {
     background: var(--purple);
     color: var(--white);
     width: 100%;
+
     font-size: 18px;
     font-weight: 500;
-    transition: background 0.3s;
 }
 
 .alternativas button:hover {
     background: var(--purple-hover);
     cursor: pointer;
+    transition: background 0.3s;
 }
 
 @media(min-width: 1100px) {
+    body{
+        background: var(--bg-desktop) var(--bg-color);
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
     header {
         margin-block: 81px;
         max-width: 1160px;
@@ -250,7 +263,7 @@ main {
     .assunto h1 {
         font-size: 28px;
     }
-   
+
     .tema {
         gap: 16px;
     }
@@ -272,6 +285,7 @@ main {
     main {
         max-width: 1160px;
         margin-inline: auto;
+
         display: flex;
         gap: 130px;
     }
@@ -280,48 +294,46 @@ main {
         width: 100%;
     }
 
-.pergunta {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
+    .pergunta {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
 
-.pergunta p {
-    font-size: 20px;
-    line-height: 30px;
-    margin-bottom: 27px;
-}
+    .pergunta p {
+        font-size: 20px;
+        line-height: 30px;
+        margin-bottom: 27px;
+    }
 
-.pergunta h2 {
-    font-size: 36px;
-    line-height: 42px;
-}
+    .pergunta h2 {
+        font-size: 36px;
+        line-height: 42px;
 
-.alternativas form {
-gap: 24px;
-margin-bottom: 24px;
-}
+    }
 
-.alternativas label {
-    font-size: 22px;
-    padding: 18px 20px;
-    border-radius: 24px;
-}
+    .alternativas form {
+        gap: 24px;
+        margin-bottom: 24px;
+    }
 
-.alternativas div { 
-    gap: 32px;
+    .alternativas label {
+        font-size: 22px;
+        padding: 18px 20px;
+        border-radius: 24px;
+    }
 
-}
+    .alternativas div {
+        gap: 32px;
+    }
 
-.alternativas div span {
-    width: 56px;
-    height: 56px;
-    font-size: 28px;
+    .alternativas div span {
+        width: 56px;
+        height: 56px;
+        font-size: 28px;
+    }
 
-}
-
-.alternativas button {
-    font-size: 22px;
-}
-
+    .alternativas button {
+        font-size: 22px;
+    }
 }
