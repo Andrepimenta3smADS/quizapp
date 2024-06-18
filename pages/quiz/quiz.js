@@ -9,6 +9,7 @@ let pontos = 0;
 let pergunta = 1;
 let resposta = ""
 let idInputResposta = ""
+let respostaCorretaId
 botaoTema.addEventListener("click", () => {
     trocarTema(body, botaoTema);
 });
@@ -97,6 +98,16 @@ function alterarSinais(texto){
     idInputResposta = evento.target.id
   }
 
+function validarResposta() {
+    if (resposta === quiz.question[pergunta-1].answer){
+        document.querySelector(`label[for='${idInputResposta}']`).setAttribute("id", "correta")
+         pontos = pontos + 1
+    } else {
+        document.querySelector(`label[for='${idInputResposta}']`).setAttribute("id", "errada")
+        document.querySelector(`label[for='${idInputResposta}']`).setAttribute("id", "correta")   
+    }
+}
+
 async function iniciar() {
     alternarAssunto()
     await buscarPerguntas()
@@ -105,6 +116,10 @@ async function iniciar() {
     const inputsResposta = document.querySelector(".alternativas input")
     inputsResposta.forEach(input => {
         input,addEventListener("click", guardarResposta)
+
+        if (input.value === quiz.question[pergunta-1].answer) {
+           respostaCorretaId = input.id
+        }
     })
 }
 
