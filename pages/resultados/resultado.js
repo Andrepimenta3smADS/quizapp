@@ -9,3 +9,11 @@ botaoTema.addEventListener("click", () => {
 
 
 verifivarTema (body, botaoTema)
+
+function alterarAssunto() {
+    const iconeImg = document.querySelector(".assunto_icone img")
+    const assuntoTitulo = document.querySelector(".assunto h1")
+
+    divIcone.classList.add(assunto.toLowerCase())
+    iconeImg.setAttribute("src", `../../assents/images/icon-${assunto.}`)
+}
